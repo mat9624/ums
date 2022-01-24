@@ -1,0 +1,8 @@
+{
+  "name": "UMS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "48e2d750"
+}
