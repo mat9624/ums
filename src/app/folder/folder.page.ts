@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component,  OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import { User } from '../classes/User';
 import { UmsService } from '../services/ums.service';
 
@@ -14,7 +14,8 @@ export class FolderPage implements OnInit {
   user: any;
   isHidden = false;
   public folder: string;
-  constructor(private activatedRoute: ActivatedRoute, private umsService: UmsService) { }
+
+  constructor(private umsService: UmsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -42,6 +43,10 @@ export class FolderPage implements OnInit {
     this.umsService.delete(this.user[0].email).subscribe(response=>{
       this.isHidden=false;
     })
+  }
+
+  goToRegistration(){
+    this.router.navigate(['/register']);
   }
 
 }

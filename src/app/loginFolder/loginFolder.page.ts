@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { User } from '../classes/User';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../classes/User';
+import {UmsService} from '../services/ums.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +9,35 @@ import { User } from '../classes/User';
 })
 export class FolderLoginPage implements OnInit {
   public folder: string;
-  user: User=new User();
+  user: User = new User();
+  created =false;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+  constructor(private umsService: UmsService) {
   }
 
+  ngOnInit() {
+  }
+
+  createUser(user: User) {
+    this.umsService.register(user).subscribe(response => {
+      if(response.email===user.email){
+        this.created=true;
+      }
+    });
+  }
+
+  assignProperty(index: string, $event: any) {
+    if (index === '0') {
+      this.user.name = $event.detail.value;
+    }
+    else if (index === '1') {
+      this.user.surname = $event.detail.value;
+    }
+    else if (index === '2') {
+      this.user.email = $event.detail.value;
+    }
+    else if (index === '3') {
+      this.user.password = $event.detail.value;
+    }
+  }
 }
