@@ -5,7 +5,7 @@ import { FolderLoginPage } from './loginFolder.page';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'register',
     component: FolderLoginPage
   }
 ];
