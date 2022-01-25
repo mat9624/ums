@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
-import { FolderPageRoutingModule } from './folder-routing.module';
-
 import { FolderPage } from './folder.page';
 import { UmsService } from '../services/ums.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {FolderPageRoutingModule} from './folder-routing.module';
 
 @NgModule({
   imports: [
@@ -16,9 +14,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     IonicModule,
     FolderPageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations: [FolderPage],
+  exports: [FolderPage],
   providers: [
     UmsService,
     HttpClient

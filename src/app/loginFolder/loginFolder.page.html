@@ -20,21 +20,28 @@
         <ion-list class="loginlist">
           <ion-item class="ion-align-self-center">
             <ion-label>Nome</ion-label>
-            <ion-input [value]="user.name"></ion-input>
+            <ion-input (ionChange)='assignProperty("0",$event)' [value]="user.name"></ion-input>
           </ion-item>
           <ion-item class="ion-align-self-center">
             <ion-label>Cognome</ion-label>
-            <ion-input [value]="user.surname"></ion-input>
+            <ion-input (ionChange)='assignProperty("1",$event)' [value]="user.surname"></ion-input>
           </ion-item>
           <ion-item class="ion-align-self-center">
             <ion-label>Email</ion-label>
-            <ion-input [value]="user.email"></ion-input>
+            <ion-input (ionChange)='assignProperty("2",$event)' [value]="user.email"></ion-input>
           </ion-item>
           <ion-item class="ion-align-self-center">
             <ion-label>Password</ion-label>
-            <ion-input [value]="user.password"></ion-input>
+            <ion-input (ionChange)='assignProperty("3",$event)' [value]="user.password"></ion-input>
           </ion-item>
-          <ion-button class="loginflex-center" color="primary">Register</ion-button>
+          <ion-button class="userloginflex-center" color="primary" (click)="createUser(user)" >
+            Registrati
+          </ion-button>
+          <div *ngIf="created">
+          <ion-label >
+            UTENTE CREATO CORRETTAMENTE
+          </ion-label>
+          </div>
         </ion-list>
       </ion-col>
     </ion-row>
