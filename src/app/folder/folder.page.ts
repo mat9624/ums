@@ -12,17 +12,25 @@ export class FolderPage implements OnInit {
   username: string;
   password: string;
   user: User;
+  isHidden = false;
   public folder: string;
   constructor(private activatedRoute: ActivatedRoute, private umsService: UmsService) { }
 
   ngOnInit() {
   }
 
-  login(username: string, password: string){
-    this.umsService.login(username,password).subscribe(response=>{
-      this.user=response;
-    });
+  login(username: string, password: string) {
 
+    this.umsService.login(username, password).subscribe(response => {
+      // eslint-disable-next-line no-debugger
+      if(response.length>0){
+        this.isHidden=true;
+        this.user[0] = response;
+      }
+      else{
+      }
+
+    });
   }
 
   register(user: User){

@@ -14,7 +14,7 @@ export class UmsService{
     constructor(private http: HttpClient){}
 
     login(email: string, password: string){
-        return this.http.get<User>(UmsService.UMS_URL+email+'+'+password);
+        return this.http.get<User[]>(UmsService.UMS_URL+'/getUser/'+email+'-'+password);
     }
 
     register(user: User){

@@ -4,4 +4,12 @@ export class User{
     email: string;
     password: string;
 
+    constructor(){
+        this.name='';
+        this.email='';
+        this.surname='';
+        this.password='';
+
+    }
+
 }

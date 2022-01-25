@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../classes/User';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderLoginPage implements OnInit {
   public folder: string;
-  user: any;
+  user: User=new User();
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
