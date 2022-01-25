@@ -17,5 +17,5 @@ import { FolderLoginPage } from './loginFolder.page';
   ],
   declarations: [FolderLoginPage]
 })
-export class FolderPageModule {
+export class LoginFolderPageModule {
 }

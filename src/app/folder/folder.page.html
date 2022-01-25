@@ -20,17 +20,17 @@
         </ion-row>
           <ion-item class="ion-align-self-center">
             <ion-label>Email</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="username"></ion-input>
           </ion-item>
           <ion-item class="ion-align-self-center">
             <ion-label>Password</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="password"></ion-input>
           </ion-item>
           <ion-button class="flex-center" color="success">Login</ion-button>
           <ion-text class="flex-center" color="white">
             <h3>OR</h3>
           </ion-text>
-          <ion-button class="flex-center" color="primary">Register</ion-button>
+          <ion-button class="flex-center" color="primary" href="register">Register</ion-button>
         </ion-list>
       </ion-col>
     </ion-row>
