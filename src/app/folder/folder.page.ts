@@ -11,7 +11,7 @@ import { UmsService } from '../services/ums.service';
 export class FolderPage implements OnInit {
   username: string;
   password: string;
-  user: User;
+  user: any;
   isHidden = false;
   public folder: string;
   constructor(private activatedRoute: ActivatedRoute, private umsService: UmsService) { }
@@ -22,10 +22,10 @@ export class FolderPage implements OnInit {
   login(username: string, password: string) {
 
     this.umsService.login(username, password).subscribe(response => {
-      // eslint-disable-next-line no-debugger
       if(response.length>0){
         this.isHidden=true;
-        this.user[0] = response;
+        this.user = response;
+        localStorage.setItem('token',this.user[0].token);
       }
       else{
       }
@@ -35,8 +35,13 @@ export class FolderPage implements OnInit {
 
   register(user: User){
     this.umsService.register(user).subscribe(response=>{
-      this.user=response;
+      this.user[0]=response;
     });
+  }
+  elimina(){
+    this.umsService.delete(this.user[0].email).subscribe(response=>{
+      this.isHidden=false;
+    })
   }
 
 }

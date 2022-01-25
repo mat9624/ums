@@ -21,5 +21,9 @@ export class UmsService{
         return this.http.post<User>(UmsService.UMS_URL+'/create',user);
     }
 
+    delete(email: string){
+        return this.http.delete<User>(UmsService.UMS_URL+"/delete/"+email);
+    }
+
 
 }

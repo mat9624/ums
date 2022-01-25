@@ -8,7 +8,8 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
 import { UmsService } from '../services/ums.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpConfigInterceptor } from '../interceptor/httpconfig.interceptor';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   declarations: [FolderPage],
   providers: [
     UmsService,
-    HttpClient
+    HttpClient,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor,multi:true}
   ]
 })
 export class FolderPageModule {}
