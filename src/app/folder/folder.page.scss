@@ -26,3 +26,32 @@ ion-menu-button {
 #container a {
   text-decoration: none;
 }
+.toolbar{
+  text-align: center;
+}
+.main-content-col{
+  justify-content: center;
+  display: flex;
+}
+
+.max-width-row{
+  max-width: 600px;
+  width: 100%;
+}
+
+.main-content{
+  height: 100%;
+}
+.flex-center{
+  justify-content: center;
+  display: flex;
+}
+.login{
+ margin:auto
+}
+.list{
+  background: transparent;
+}
+.icon{
+  font-size: 100px;
+}
