@@ -13,10 +13,11 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        
         debugger
         const token: string = localStorage.getItem('token');
         
-        const req=request.clone({headers: request.headers.set('Authorization',"Token:"+token)})
+        const req=request.clone({headers: request.headers.set('Authorization',token)})
 
         return next.handle(req);
     }
