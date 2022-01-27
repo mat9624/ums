@@ -13,7 +13,6 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        
         debugger
         if(localStorage.getItem('token')==null){
             return next.handle(request);
