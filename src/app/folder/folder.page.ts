@@ -23,6 +23,7 @@ export class FolderPage implements OnInit {
   login(username: string, password: string) {
 
     this.umsService.login(username, password).subscribe(response => {
+      debugger
       if(response.length>0){
         this.isHidden=true;
         this.user = response;
