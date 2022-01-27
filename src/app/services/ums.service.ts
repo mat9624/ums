@@ -3,6 +3,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import { User } from '../classes/user';
+import { LoginCommand } from '../commands/login.command';
+import { RegisterCommand } from '../commands/register.command';
+import { DeleteCommand } from '../commands/delete.command';
 
 @Injectable({
     providedIn: 'root'
@@ -13,16 +16,16 @@ export class UmsService{
 
     constructor(private http: HttpClient){}
 
-    login(email: string, password: string){
-        return this.http.get<User[]>(UmsService.UMS_URL+'/getUser/'+email+'-'+password);
+    login(loginCmd: LoginCommand){
+        return this.http.post<User[]>(UmsService.UMS_URL+'/getUser',loginCmd);
     }
 
-    register(user: User){
-        return this.http.post<User>(UmsService.UMS_URL+'/create',user);
+    register(registerCmd: RegisterCommand){
+        return this.http.post<User>(UmsService.UMS_URL+'/create',registerCmd);
     }
 
-    delete(email: string){
-        return this.http.delete<User>(UmsService.UMS_URL+"/delete/"+email);
+    delete(deleteCmd: DeleteCommand){
+        return this.http.post<User>(UmsService.UMS_URL+"/delete", deleteCmd);
     }
 
 

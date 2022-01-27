@@ -2,6 +2,9 @@ import { Component,  OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { User } from '../classes/User';
 import { UmsService } from '../services/ums.service';
+import { LoginCommand } from '../commands/login.command';
+import { RegisterCommand } from '../commands/register.command';
+import { DeleteCommand } from '../commands/delete.command';
 
 @Component({
   selector: 'app-folder',
@@ -13,6 +16,8 @@ export class FolderPage implements OnInit {
   password: string;
   user: any;
   isHidden = false;
+  loginCmd: LoginCommand
+  deleteCmd: DeleteCommand
   public folder: string;
 
   constructor(private umsService: UmsService, private router: Router) { }
@@ -20,10 +25,10 @@ export class FolderPage implements OnInit {
   ngOnInit() {
   }
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
+    this.loginCmd=new LoginCommand(email,password)
 
-    this.umsService.login(username, password).subscribe(response => {
-      debugger
+    this.umsService.login(this.loginCmd).subscribe(response => {
       if(response.length>0){
         this.isHidden=true;
         this.user = response;
@@ -35,13 +40,9 @@ export class FolderPage implements OnInit {
     });
   }
 
-  register(user: User){
-    this.umsService.register(user).subscribe(response=>{
-      this.user[0]=response;
-    });
-  }
   elimina(){
-    this.umsService.delete(this.user[0].email).subscribe(response=>{
+    this.deleteCmd=new DeleteCommand(this.user[0].email);
+    this.umsService.delete(this.deleteCmd).subscribe(response=>{
       this.isHidden=false;
     })
   }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../classes/User';
+import { RegisterCommand } from '../commands/register.command';
 import {UmsService} from '../services/ums.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class FolderLoginPage implements OnInit {
   public folder: string;
   user: User = new User();
   created =false;
+  registerCmd: RegisterCommand
 
   constructor(private umsService: UmsService) {
   }
@@ -19,7 +21,8 @@ export class FolderLoginPage implements OnInit {
   }
 
   createUser(user: User) {
-    this.umsService.register(user).subscribe(response => {
+    this.registerCmd=new RegisterCommand(user.name, user.surname, user.email, user.password)
+    this.umsService.register(this.registerCmd).subscribe(response => {
       if(response.email===user.email){
         this.created=true;
       }
