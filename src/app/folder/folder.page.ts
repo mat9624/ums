@@ -29,7 +29,7 @@ export class FolderPage implements OnInit {
     this.loginCmd=new LoginCommand(email,password)
 
     this.umsService.login(this.loginCmd).subscribe(response => {
-      if(response.length>0){
+      if(response){
         this.isHidden=true;
         this.user = response;
         localStorage.setItem('token',this.user[0].token);
@@ -41,7 +41,7 @@ export class FolderPage implements OnInit {
   }
 
   elimina(){
-    this.deleteCmd=new DeleteCommand(this.user[0].email);
+    this.deleteCmd=new DeleteCommand(this.user.email);
     this.umsService.delete(this.deleteCmd).subscribe(response=>{
       this.isHidden=false;
     })

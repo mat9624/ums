@@ -17,7 +17,7 @@ export class UmsService{
     constructor(private http: HttpClient){}
 
     login(loginCmd: LoginCommand){
-        return this.http.post<User[]>(UmsService.UMS_URL+'/getUser',loginCmd);
+        return this.http.post<User>(UmsService.UMS_URL+'/getUser',loginCmd);
     }
 
     register(registerCmd: RegisterCommand){
