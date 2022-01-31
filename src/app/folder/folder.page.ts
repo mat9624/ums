@@ -32,7 +32,7 @@ export class FolderPage implements OnInit {
       if(response){
         this.isHidden=true;
         this.user = response;
-        localStorage.setItem('token',this.user[0].token);
+        localStorage.setItem('token',this.user.token);
       }
       else{
       }
