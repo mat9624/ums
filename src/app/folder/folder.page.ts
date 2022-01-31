@@ -1,9 +1,7 @@
 import { Component,  OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { User } from '../classes/User';
 import { UmsService } from '../services/ums.service';
 import { LoginCommand } from '../commands/login.command';
-import { RegisterCommand } from '../commands/register.command';
 import { DeleteCommand } from '../commands/delete.command';
 
 @Component({

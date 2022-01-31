@@ -10,35 +10,42 @@
 
 
 <ion-row class="main-content">
+
   <ion-col class="main-content-col">
     <ion-row class="max-width-row">
       <ion-col class="flex-center">
+
         <ion-item [hidden]="!isHidden">
-        <ion-text color="secondary">
-          <h1>Benvenuto {{username}}</h1>
-          <ion-button class="flex-center" color="success" (click)="elimina()">Elimina</ion-button>
-        </ion-text>
-      </ion-item>
+          <ion-text color="secondary">
+            <h1>Benvenuto {{username}}</h1>
+            <ion-button class="flex-center" color="success" (click)="elimina()">Elimina</ion-button>
+          </ion-text>
+        </ion-item>
+
         <ion-list [hidden]="isHidden" class="list">
           <ion-row>
             <ion-col class="flex-center">
               <ion-icon class="icon" name="people-outline"></ion-icon>
             </ion-col>
           </ion-row>
+
           <ion-item class="ion-align-self-center">
             <ion-label>Email</ion-label>
             <ion-input [(ngModel)]="username"></ion-input>
           </ion-item>
+
           <ion-item class="ion-align-self-center">
             <ion-label>Password</ion-label>
             <ion-input [(ngModel)]="password"></ion-input>
           </ion-item>
+
           <ion-button class="flex-center" color="success" (click)="login(username,password)">Login</ion-button>
           <ion-text class="flex-center" color="white">
             <h3>OR</h3>
           </ion-text>
           <ion-button class="flex-center" color="primary" (click)="goToRegistration()">Register</ion-button>
         </ion-list>
+
       </ion-col>
     </ion-row>
   </ion-col>
