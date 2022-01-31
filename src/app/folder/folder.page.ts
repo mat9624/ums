@@ -1,9 +1,7 @@
 import { Component,  OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { User } from '../classes/User';
 import { UmsService } from '../services/ums.service';
 import { LoginCommand } from '../commands/login.command';
-import { RegisterCommand } from '../commands/register.command';
 import { DeleteCommand } from '../commands/delete.command';
 
 @Component({
@@ -32,7 +30,7 @@ export class FolderPage implements OnInit {
       if(response){
         this.isHidden=true;
         this.user = response;
-        localStorage.setItem('token',this.user[0].token);
+        localStorage.setItem('token',this.user.token);
       }
       else{
       }
