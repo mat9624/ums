@@ -6,10 +6,10 @@ import { DeleteCommand } from '../commands/delete.command';
 
 @Component({
   selector: 'app-folder',
-  templateUrl: './folder.page.html',
-  styleUrls: ['./folder.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class FolderPage implements OnInit {
+export class HomePage implements OnInit {
   username: string;
   password: string;
   user: any;

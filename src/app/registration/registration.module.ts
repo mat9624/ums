@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
-import { FolderLoginPage } from './loginFolder.page';
+import { RegistrationPage } from './registration.page';
 import {UmsService} from '../services/ums.service';
-import {FolderLoginPageRoutingModule} from './loginFolder-routing.module';
+import {FolderLoginPageRoutingModule} from './registration-routing.module';
 
 @NgModule({
   imports: [
@@ -17,9 +17,9 @@ import {FolderLoginPageRoutingModule} from './loginFolder-routing.module';
     FolderLoginPageRoutingModule,
     HttpClientModule,
   ],
-  declarations: [FolderLoginPage],
-  exports: [FolderLoginPage],
+  declarations: [RegistrationPage],
+  exports: [RegistrationPage],
   providers: [UmsService,HttpClient]
 })
-export class LoginFolderPageModule {
+export class RegistrationPageModule {
 }

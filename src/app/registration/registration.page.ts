@@ -5,10 +5,10 @@ import {UmsService} from '../services/ums.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './loginFolder.page.html',
-  styleUrls: ['./loginFolder.page.scss']
+  templateUrl: './registration.page.html',
+  styleUrls: ['./registration.page.scss']
 })
-export class FolderLoginPage implements OnInit {
+export class RegistrationPage implements OnInit {
   public folder: string;
   user: User = new User();
   created =false;
